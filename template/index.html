@@ -1,0 +1,187 @@
+{{define "index"}}
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ascii-Art-Web</title>
+    <link rel="stylesheet" href="/static/styles/style.css" />
+  </head>
+  <body>
+    <div class="container">
+
+  <style>
+  html {
+  background-image: url("https://images2.alphacoders.com/102/thumb-1920-1026253.jpg");
+  }
+  .BOX {
+    position: fixed;
+    top: 8px;
+    left: -132px;
+  }
+  .Menu {
+    display: flex;
+    margin-left: 200px;
+    width: 93%;
+    height: 340px;
+    border: inset lightblue;
+    background-image: url("https://media1.giphy.com/media/2YtbP1yzZnOR3ajuDb/source.gif");
+    border-radius: 39px;
+    border: 1px solid #4195fc; /* some kind of blue border */
+
+      /* other CSS styles */
+
+      /* round the corners */
+      -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+              border-radius: 4px;
+
+
+      /* make it glow! */
+      -webkit-box-shadow: 0px 0px 4px #4195fc;
+        -moz-box-shadow: 0px 0px 4px #4195fc;
+              box-shadow: 0px 0px 4px #4195fc; 
+  }
+  .choices {
+    display: table-caption;
+  }
+  .selector {
+    font-size: x-large;
+    color: aliceblue;
+    justify-content: center;
+    margin-left: 150px;
+    font-style: oblique;
+    margin-right: 88px;
+  }
+  .text textarea {
+    margin: 25px 0px 5px 132px;
+    width: 295px;
+    height: 117px;
+    border-radius: 10px;
+    border: solid yellow;
+    font-size: 25px;
+  }
+  .text {
+    font-style: italic;
+  }
+  select {
+    width: 215px;
+    height: 25px;
+    margin-top: 18px;
+    border-radius: 10px;
+    border: solid yellow;
+    font-size: 18px;
+  }
+  fieldset {
+    border-radius: 10px;
+    margin-top: 365px;
+    width: 0px;
+  }
+  .output {
+    line-height: 30px;
+    height: 100%;
+    font-size: xx-large;
+  }
+  .red {
+    background-color: black;
+  }
+  .green {
+    background-color: black;
+  }
+  .black {
+    background-color: navy;
+  }
+  .blue {
+    background-color: black;
+  }
+  .gray {
+    background-color: darkblue;
+  }
+  .yellow {
+    background-color: black;
+  }
+  .pink {
+    background-color: black;
+  }
+  .white {
+    background-color: black;
+  }
+  .file {
+    width: 213px;
+      height: 25px;
+      margin-top: 9px;
+      margin-left: 10px;
+      border-radius: 10px;
+      font-size: 18px;
+      border: solid yellow;
+  }
+  .submit {
+    width: 114px;
+    height: 41px;
+    margin-left: -61px;
+    margin-top: 241px;
+    background-color: black;
+    color: yellow;
+    font-size: 32px;
+    border-radius: 6px;
+  }
+  </style>
+      
+      <form method="POST" action="/" >
+        <div class="BOX">
+        <div class="Menu">
+            <div class="choices">
+              <div class="selector">
+                <label for="font">Font :</label>
+                <select id="font" name="font">
+                  <option selected="selected" >Standard</option>
+                  <option>Shadow</option>
+                  <option>Thinkertoy</option>
+                </select>
+              </div>
+              <div class="selector">
+                <label for="Color">Color:</label>
+                <select id="Color" name="color">
+                  <option value="black" selected="selected">Black</option>
+                  <option value="white">White</option>
+                  <option value="red">Red</option>
+                  <option value="blue">Blue</option>
+                  <option value="yellow">Yellow</option>
+                  <option value="gray">Gray</option>
+                  <option value="pink">Pink</option>
+                  <option value="green">Green</option>
+                </select>
+              </div>
+              <div class="selector">
+
+                <label>File : </label>
+                <input class="file" name="output" type="text" value="" />
+              </div>
+              <div class="selector">
+                <label for="size">Font Size:</label>
+                <select id="size" name="size">
+                  <option selected="selected">small</option>
+                  <option>large</option>
+                  <option>xx-large</option>
+                  <option>larger</option>
+                </select>
+              </div>
+            </div>
+            
+
+            <div class="text">
+              <textarea name="texte" id="inputText">Type something</textarea>
+            </div>
+            <input class="submit" type="submit" value="test" />
+          </form>
+        </div>
+      </div>
+     <fieldset class="{{.Color}}"><div class="output">
+      <pre  style="font-size:{{.Size}}; color:{{.Color}}">
+        {{ .Display }}
+      </pre>
+    </div></fieldset> 
+     
+    </div>
+  </body>
+</html>
+{{ end }}
